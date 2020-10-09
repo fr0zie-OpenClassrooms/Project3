@@ -1,5 +1,3 @@
-import random
-
 def gameLocation():
     # Create an empty list to setup the game
     grid = []
