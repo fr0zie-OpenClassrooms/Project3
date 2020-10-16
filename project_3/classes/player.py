@@ -55,5 +55,4 @@ class Player:
     def draw(self, game):
         """Method used to draw the player at its location."""
 
-        size = 40
-        game.blit(self.image, (self.x * size, self.y * size))
+        game.blit(self.image, (self.x_pos, self.y_pos))

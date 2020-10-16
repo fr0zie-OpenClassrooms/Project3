@@ -11,6 +11,8 @@ class Items:
         self.id = id
         self.image = pygame.image.load(image).convert_alpha()
         self.x, self.y = self.randomize_pos(id)
+        self.x_pos = self.x * 40
+        self.y_pos = self.y * 40
 
     def randomize_pos(self, id):
         """Method used in item initialization to randomize its location."""
@@ -34,5 +36,4 @@ class Items:
     def draw(self, game):
         """Method used to draw items in the maze structure within the 'game' window."""
 
-        size = 40
-        game.blit(self.image, (self.x * size, self.y * size))
+        game.blit(self.image, (self.x_pos, self.y_pos))

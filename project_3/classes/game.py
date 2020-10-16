@@ -29,13 +29,15 @@ class Game:
         """Method to start a new game."""
         # Set title
         pygame.display.set_caption("Aidez MacGyver à s'échapper !")
-        # Draw the maze structure and places the player
-        self.maze.draw(self.game)
-        self.player.draw(self.game)
         # Draw items in maze
         self.item_ether.draw(self.game)
         self.item_needle.draw(self.game)
         self.item_tube.draw(self.game)
+        # Draw the maze structure and places the player
+        self.maze.draw(self.game)
+        self.player.draw(self.game)
+
+        pygame.key.set_repeat(200, 30)
 
         # Game loop
         while not self.is_over:
@@ -51,6 +53,8 @@ class Game:
                         self.player.moveLeft()
                     elif event.key == K_RIGHT:
                         self.player.moveRight()
+                    elif event.key == K_ESCAPE:
+                        self.is_over = True
 
             # Draw player at its new location
             self.maze.draw(self.game)
@@ -61,7 +65,7 @@ class Game:
             if (self.maze.structure[self.player.x][self.player.y] == 3) or (self.maze.structure[self.player.x][self.player.y] == 4) or (self.maze.structure[self.player.x][self.player.y] == 5):
                 self.maze.structure[self.player.x][self.player.y] = 0
                 self.game.blit(self.floor, (self.player.x_pos, self.player.y_pos))
-                print('Player got', (self.player.x, self.player.y))
+                print('Player got item in', (self.player.x, self.player.y))
                 self.player.item_list += 1
 
             # Check if player is on the guardian
