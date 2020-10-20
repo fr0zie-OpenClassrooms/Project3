@@ -1,12 +1,14 @@
 class Maze:
     """Class defining maze structure."""
 
-    def __init__(self, file="maze.txt", size=15):
+    def __init__(self, file="maze.txt", size=15, x=0, y=7):
         """Method that initializes the maze with its structure."""
 
         self.file = file
         self.size = size
-        self.structure = []
+        self.x = x
+        self.y = y
+        self.structure = self.generate()
 
     def generate(self):
         """Generates the maze based on the map file."""
@@ -19,4 +21,5 @@ class Maze:
                     if sprite != "\n":
                         maze_row.append(sprite)
                 maze_structure.append(maze_row)
-            self.structure = maze_structure
+            
+        return maze_structure
