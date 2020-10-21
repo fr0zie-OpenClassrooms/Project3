@@ -2,7 +2,7 @@ from classes.application import Application
 
 def main():
     choice = {"1": "cli", "2": "pygame"}
-    output = input("How do you want to play the game?\n1: Terminal\n2: Pygame\n")
+    output = input("How do you want to play the game?\n1: Terminal\n2: Pygame\nChoice: ")
 
     if output not in choice:
         main()
