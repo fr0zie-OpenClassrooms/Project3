@@ -1,7 +1,7 @@
 class Maze:
     """Class defining maze structure."""
 
-    def __init__(self, file="maze.txt", size=15, x=0, y=7):
+    def __init__(self, file="data/maze.txt", size=15, x=0, y=7):
         """Method that initializes the maze with its structure."""
 
         self.file = file
