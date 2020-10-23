@@ -7,7 +7,9 @@ class PygameController:
 
     def handle_control(self):
         for event in pygame.event.get():
-            if event.type == KEYDOWN:
+            if event.type == QUIT:
+                return "quit"
+            elif event.type == KEYDOWN:
                 if event.key == K_UP:
                     return "up"
                 elif event.key == K_DOWN:

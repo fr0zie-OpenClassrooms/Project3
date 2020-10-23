@@ -39,12 +39,12 @@ class PygameView:
         self.window.blit(rule2, (20, 640))
         self.window.blit(inventory, (20, 660))
 
-        for x in range(self.game.maze.size):
-            for y in range(self.game.maze.size):
+        for y in range(self.game.maze.size):
+            for x in range(self.game.maze.size):
                 structure = self.game.maze.structure[x][y]
                 position = y * self.sprite_size, x * self.sprite_size
 
-                if x == self.game.player.x and y == self.game.player.y:
+                if self.game.player.x == x and self.game.player.y == y:
                     self.window.blit(self.images["macgyver"], position)
                 elif structure == self.chars["guardian"]:
                     self.window.blit(self.images["guardian"], position)
