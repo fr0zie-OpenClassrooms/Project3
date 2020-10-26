@@ -27,18 +27,18 @@ class PygameView:
         self.color_white = (255, 255, 255)
         self.font = pygame.font.SysFont("lato", 24)
 
-    def display(self): # + display_maze, display_rules, display_inventory, display_status
         pygame.display.set_caption("Help MacGyver to escape !\n")
+
+    def display(self):
         self.window.blit(self.background, (0, 0))
 
-        rule1 = self.font.render("Pick up all the items and reach the Guardian.", True, self.color_white)
-        rule2 = self.font.render("If you try to escape without all the items, you will lose!", True, self.color_white)
-        inventory = self.font.render("Inventory: " + str(self.game.player.inventory) + " / 3 items", True, self.color_white)
+        self.display_text()
+        self.display_maze()
+        self.display_status()
         
-        self.window.blit(rule1, (20, 620))
-        self.window.blit(rule2, (20, 640))
-        self.window.blit(inventory, (20, 660))
+        pygame.display.update()
 
+    def display_maze(self):
         for y in range(self.game.maze.size):
             for x in range(self.game.maze.size):
                 structure = self.game.maze.structure[x][y]
@@ -59,14 +59,22 @@ class PygameView:
                 elif structure == self.chars["floor"]:
                     self.window.blit(self.images["floor"], position)
 
-        pygame.display.update()
+    def display_text(self):
+        rule1 = self.font.render("Pick up all the items and reach the Guardian.", True, self.color_white)
+        rule2 = self.font.render("If you try to escape without all the items, you will lose!", True, self.color_white)
+        inventory = self.font.render(f"Inventory: {str(self.game.player.inventory)}/3 items", True, self.color_white)
+        
+        self.window.blit(rule1, (20, 620))
+        self.window.blit(rule2, (20, 640))
+        self.window.blit(inventory, (20, 660))
 
+    def display_status(self):
         if self.game.is_end:
             self.font = pygame.font.SysFont("lato", 48)
             if self.game.status == "win":
                 text = self.font.render("You won !", True, self.color_white)
             elif self.game.status == "lose":
-                text = self.font.render("You lost ! You only had " + str(self.game.player.inventory) + " / 3 items.", True, self.color_white)
+                text = self.font.render(f"You lost ! You only had {str(self.game.player.inventory)}/3 items.", True, self.color_white)
 
             text_location = text.get_rect(center=(self.window_width/2, self.window_height/2))
             self.window.blit(text, text_location)
