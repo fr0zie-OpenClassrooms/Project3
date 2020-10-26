@@ -27,7 +27,7 @@ class PygameView:
         self.color_white = (255, 255, 255)
         self.font = pygame.font.SysFont("lato", 24)
 
-        pygame.display.set_caption("Help MacGyver to escape !\n")
+        pygame.display.set_caption("Help MacGyver to escape!\n")
 
     def display(self):
         self.window.blit(self.background, (0, 0))
