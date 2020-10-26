@@ -47,4 +47,4 @@ If you play in [PyGame](https://www.pygame.org/), controls are directional arrow
 
 ## License
 
-[WTFPL](https://fr.wikipedia.org/wiki/WTFPL)
+[WTFPL](https://www.wikipedia.org/wiki/WTFPL)
