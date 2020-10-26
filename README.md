@@ -1,5 +1,7 @@
 # Project 3: Help MacGyver to escape !
 
+![Maze](assets/maze_example.png)
+
 In this Python game, you embody MacGyver and have to recover 3 items inside the maze to benumb the guard (ether, needle and tube).
 If you try to escape the maze without all of them, you will lose!
 
