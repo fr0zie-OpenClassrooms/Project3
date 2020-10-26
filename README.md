@@ -40,10 +40,10 @@ You will have to choose playing the game either in the terminal or in [PyGame](h
 ### Controls
 
 If you play in terminal, controls are:
-- Z (up)
-- Q (left)
-- S (down)
-- D (right)
+- [↑] Z
+- [↓] S
+- [←] Q
+- [→] D
 
 If you play in [PyGame](https://www.pygame.org/), controls are directional arrows.
 
