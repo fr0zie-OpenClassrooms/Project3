@@ -1,14 +1,22 @@
 class CLIView:
+    """Class defining terminal view."""
+
     def __init__(self, game):
+        """Class initialization."""
+
         self.game = game
         self.chars = self.game.chars
 
     def display(self):
+        """Method used to display the whole game before each update."""
+
         self.display_text()
         self.display_maze()
         self.display_status()
 
     def display_maze(self):
+        """Method used to display the maze structure."""
+
         for x in range(self.game.maze.size):
             sprite = ""
             for y in range(self.game.maze.size):
@@ -29,6 +37,8 @@ class CLIView:
             print(sprite)
 
     def display_text(self):
+        """Method used to display the game text. (rules, inventory)"""
+        
         print("\n" * 100)
         print("Help MacGyver (M) to escape !\n")
         print("Controls:\n")
@@ -39,6 +49,8 @@ class CLIView:
         print(f"Inventory: {str(self.game.player.inventory)}/3 items\n")
 
     def display_status(self):
+        """Method used to display the game status when player reaches the end."""
+        
         if self.game.is_end:
             if self.game.status == "win":
                 text = "\nYou won !\nPress any key to continue..."

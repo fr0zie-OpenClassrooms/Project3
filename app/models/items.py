@@ -4,7 +4,7 @@ class Items:
     """Class randomizing items location."""
 
     def __init__(self, maze, id: str):
-        """Method that initializes the item in the specified maze, with its ID and image."""
+        """Method that initializes an item in the specified maze, with its ID."""
 
         self.maze = maze
         self.id = id

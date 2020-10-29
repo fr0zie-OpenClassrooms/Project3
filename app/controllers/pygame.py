@@ -2,10 +2,16 @@ import pygame
 from pygame.locals import K_ESCAPE, K_RIGHT, K_LEFT, K_UP, K_DOWN, KEYDOWN, QUIT
 
 class PygameController:
+    """Class defining PyGame controller."""
+
     def __init__(self, game):
+        """Class initialization."""
+
         self.game = game
 
     def handle_control(self):
+        """Method used to get player's keyboard capture."""
+        
         for event in pygame.event.get():
             if event.type == QUIT:
                 return "quit"

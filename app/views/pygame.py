@@ -2,7 +2,11 @@ import pygame
 import time
 
 class PygameView:
+    """Class defining PyGame view."""
+
     def __init__(self, game):
+        """Class initialization."""
+
         pygame.init()
         pygame.key.set_repeat(50, 100)
 
@@ -30,6 +34,8 @@ class PygameView:
         pygame.display.set_caption("Help MacGyver to escape!\n")
 
     def display(self):
+        """Method used to display the whole game before each update."""
+
         self.window.blit(self.background, (0, 0))
 
         self.display_text()
@@ -39,6 +45,8 @@ class PygameView:
         pygame.display.update()
 
     def display_maze(self):
+        """Method used to display the maze structure."""
+
         for y in range(self.game.maze.size):
             for x in range(self.game.maze.size):
                 structure = self.game.maze.structure[x][y]
@@ -60,6 +68,8 @@ class PygameView:
                     self.window.blit(self.images["floor"], position)
 
     def display_text(self):
+        """Method used to display the game text. (rules, inventory)"""
+        
         rule1 = self.font.render("Pick up all the items and reach the Guardian.", True, self.color_white)
         rule2 = self.font.render("If you try to escape without all the items, you will lose!", True, self.color_white)
         inventory = self.font.render(f"Inventory: {str(self.game.player.inventory)}/3 items", True, self.color_white)
@@ -69,6 +79,8 @@ class PygameView:
         self.window.blit(inventory, (20, 660))
 
     def display_status(self):
+        """Method used to display the game status when player reaches the end."""
+        
         if self.game.is_end:
             self.font = pygame.font.SysFont("lato", 48)
             if self.game.status == "win":
