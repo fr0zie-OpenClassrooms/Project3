@@ -21,14 +21,14 @@ class CLIView:
             sprite = ""
             for y in range(self.game.maze.size):
                 structure = self.game.maze.structure[x][y]
-                
+
                 if x == self.game.player.x and y == self.game.player.y:
                     sprite += " M "
                 elif structure == self.chars["guardian"]:
                     sprite += " G "
                 elif structure == self.chars["ether"] or \
-                     structure == self.chars["needle"] or \
-                     structure == self.chars["tube"]:
+                        structure == self.chars["needle"] or \
+                        structure == self.chars["tube"]:
                     sprite += " I "
                 elif structure == self.chars["wall"]:
                     sprite += "###"
@@ -38,7 +38,7 @@ class CLIView:
 
     def display_text(self):
         """Method used to display the game text. (rules, inventory)"""
-        
+
         print("\n" * 100)
         print("Help MacGyver (M) to escape !\n")
         print("Controls:\n")
@@ -49,8 +49,9 @@ class CLIView:
         print(f"Inventory: {str(self.game.player.inventory)}/3 items\n")
 
     def display_status(self):
-        """Method used to display the game status when player reaches the end."""
-        
+        """Method used to display the game status
+        when player reaches the end."""
+
         if self.game.is_end:
             if self.game.status == "win":
                 text = "\nYou won !\nPress any key to continue..."

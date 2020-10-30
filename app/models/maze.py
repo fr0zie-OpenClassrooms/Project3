@@ -21,5 +21,5 @@ class Maze:
                     if sprite != "\n":
                         maze_row.append(sprite)
                 maze_structure.append(maze_row)
-            
+
         return maze_structure

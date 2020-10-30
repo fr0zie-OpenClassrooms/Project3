@@ -1,5 +1,5 @@
 import pygame
-import time
+
 
 class PygameView:
     """Class defining PyGame view."""
@@ -15,9 +15,14 @@ class PygameView:
         self.sprite_size = 40
         self.window_width = 600
         self.window_height = 600
-        self.window = pygame.display.set_mode((self.window_width, self.window_height + 100))
+        self.window = pygame.display.set_mode(
+                (self.window_width, self.window_height + 100)
+            )
         self.background_image = pygame.image.load("assets/floor.png").convert()
-        self.background = pygame.transform.scale(self.background_image, (self.window_width, self.window_height + 100))
+        self.background = pygame.transform.scale(
+                self.background_image,
+                (self.window_width, self.window_height + 100)
+            )
         self.images = {
             "macgyver": pygame.image.load("assets/macgyver.png").convert(),
             "guardian": pygame.image.load("assets/guardian.png").convert(),
@@ -41,7 +46,7 @@ class PygameView:
         self.display_text()
         self.display_maze()
         self.display_status()
-        
+
         pygame.display.update()
 
     def display_maze(self):
@@ -69,26 +74,37 @@ class PygameView:
 
     def display_text(self):
         """Method used to display the game text. (rules, inventory)"""
-        
-        rule1 = self.font.render("Pick up all the items and reach the Guardian.", True, self.color_white)
-        rule2 = self.font.render("If you try to escape without all the items, you will lose!", True, self.color_white)
-        inventory = self.font.render(f"Inventory: {str(self.game.player.inventory)}/3 items", True, self.color_white)
-        
+
+        rule1 = self.font.render(
+                "Pick up all the items and reach the Guardian.",
+                True, self.color_white)
+        rule2 = self.font.render(
+                "If you try to escape without all the items, you will lose!",
+                True, self.color_white)
+        inventory = self.font.render(
+            f"Inventory: {str(self.game.player.inventory)}/3 items",
+            True, self.color_white)
+
         self.window.blit(rule1, (20, 620))
         self.window.blit(rule2, (20, 640))
         self.window.blit(inventory, (20, 660))
 
     def display_status(self):
-        """Method used to display the game status when player reaches the end."""
-        
+        """Method used to display the game status
+        when player reaches the end."""
+
         if self.game.is_end:
             self.font = pygame.font.SysFont("lato", 48)
             if self.game.status == "win":
                 text = self.font.render("You won !", True, self.color_white)
             elif self.game.status == "lose":
-                text = self.font.render(f"You lost ! You only had {str(self.game.player.inventory)}/3 items.", True, self.color_white)
+                text = self.font.render(
+                    f"You lost ! You only had {str(self.game.player.inventory)}/3 items.",
+                    True, self.color_white)
 
-            text_location = text.get_rect(center=(self.window_width/2, self.window_height/2))
+            text_location = text.get_rect(
+                    center=(self.window_width/2, self.window_height/2)
+                )
             self.window.blit(text, text_location)
             pygame.display.update()
             pygame.time.delay(3000)

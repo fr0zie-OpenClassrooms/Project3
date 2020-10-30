@@ -1,10 +1,12 @@
 from random import randint
 
+
 class Items:
     """Class randomizing items location."""
 
     def __init__(self, maze, id: str):
-        """Method that initializes an item in the specified maze, with its ID."""
+        """Method that initializes an item in the specified maze,
+        with its ID."""
 
         self.maze = maze
         self.id = id

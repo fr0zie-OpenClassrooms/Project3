@@ -11,6 +11,6 @@ class CLIController:
 
         commands = self.game.commands
         control = input()
-        
+
         if control in commands:
             return commands[control]

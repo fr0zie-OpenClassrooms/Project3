@@ -6,6 +6,7 @@ from app.views.pygame import PygameView
 
 from app.models.game import Game
 
+
 class Application:
     """Class used to setup a new game with the chosen output."""
 
@@ -23,7 +24,7 @@ class Application:
 
     def run(self):
         """Method used to loop game."""
-        
+
         while self.game.is_running:
             self.view.display()
             control = self.controller.handle_control()
