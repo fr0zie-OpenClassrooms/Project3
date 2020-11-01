@@ -24,7 +24,7 @@ class PygameView:
                 (self.window_width, self.window_height + 100)
             )
         self.images = {
-            "macgyver": pygame.image.load("assets/macgyver.png").convert(),
+            "macgyver": pygame.image.load("assets/macgyver.png").convert_alpha(),
             "guardian": pygame.image.load("assets/guardian.png").convert(),
             "ether": pygame.image.load("assets/ether.png").convert(),
             "needle": pygame.image.load("assets/needle.png").convert(),
