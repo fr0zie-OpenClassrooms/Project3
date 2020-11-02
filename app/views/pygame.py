@@ -69,7 +69,8 @@ class PygameView:
                     self.window.blit(self.images["tube"], position)
                 elif structure == self.chars["wall"]:
                     self.window.blit(self.images["wall"], position)
-                elif structure == self.chars["floor"]:
+                elif structure == self.chars["floor"] or \
+                        structure == self.chars["start"]:
                     self.window.blit(self.images["floor"], position)
 
     def display_text(self):

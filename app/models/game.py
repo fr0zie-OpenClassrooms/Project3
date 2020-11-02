@@ -10,6 +10,7 @@ class Game:
         """Class initialization."""
 
         self.chars = {
+            "start": "s",
             "macgyver": "m",
             "guardian": "g",
             "ether": "e",

@@ -32,7 +32,8 @@ class CLIView:
                     sprite += " I "
                 elif structure == self.chars["wall"]:
                     sprite += "###"
-                elif structure == self.chars["floor"]:
+                elif structure == self.chars["floor"] or \
+                        structure == self.chars["start"]:
                     sprite += "   "
             print(sprite)
 
