@@ -20,7 +20,7 @@ class Items:
 
         # Loop until item is placed
         while not is_item_placed:
-            # Randomizes 'x' and 'y' locations within the 15x15 structure
+            # Randomizes 'x' and 'y' locations within the structure
             self.x = randint(0, self.maze.size-1)
             self.y = randint(0, self.maze.size-1)
 
